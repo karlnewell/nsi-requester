@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET    /                    @controllers.ApplicationController.index
+GET    /reserve             @controllers.ApplicationController.index
+GET    /reserve/initial     @controllers.ApplicationController.reserveForm
+POST   /reserve/initial     @controllers.ApplicationController.reserve
+GET    /reserve/modify      @controllers.ApplicationController.reserveModifyForm
+POST   /reserve/modify      @controllers.ApplicationController.reserveModify
+GET    /reserveCommit       @controllers.ApplicationController.reserveCommitForm
+POST   /reserveCommit       @controllers.ApplicationController.reserveCommit
+GET    /reserveAbort        @controllers.ApplicationController.reserveAbortForm
+POST   /reserveAbort        @controllers.ApplicationController.reserveAbort
+GET    /provision           @controllers.ApplicationController.provisionForm
+POST   /provision           @controllers.ApplicationController.provision
+GET    /terminate           @controllers.ApplicationController.terminateForm
+POST   /terminate           @controllers.ApplicationController.terminate
+GET    /release             @controllers.ApplicationController.releaseForm
+POST   /release             @controllers.ApplicationController.release
+GET    /query               @controllers.ApplicationController.queryForm
+POST   /query               @controllers.ApplicationController.query
+GET    /queryMessage        @controllers.ApplicationController.queryMessageForm
+POST   /queryMessage        @controllers.ApplicationController.queryMessage
+
+POST   /validateProvider    @controllers.ApplicationController.validateProvider
+
+GET    /settings            @controllers.SettingsController.settingsForm
+POST   /settings            @controllers.SettingsController.settings
+
+GET    /events/:id          @controllers.ResponseController.eventSource(id)
+POST   /reply               @controllers.ResponseController.reply
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file        controllers.Assets.at(path="/public", file)
